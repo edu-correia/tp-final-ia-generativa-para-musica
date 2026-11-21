@@ -8,7 +8,7 @@ from miditok import REMI
 
 
 PASTA_PROJETO = Path(__file__).resolve().parents[1]
-PASTA_TOKENS = PASTA_PROJETO / "processed_tokens"
+PASTA_TOKENS = PASTA_PROJETO / "processed_tokens_convertidos"
 PASTA_PROCESSADOS = PASTA_PROJETO / "processed_midi"
 PASTA_SAIDA = PASTA_PROJETO / "processed_midi" / "roundtrip_test"
 
@@ -105,8 +105,7 @@ def selecionar_amostras():
     selecionadas = []
     for quadrante in ("Q1", "Q2", "Q3", "Q4"):
         arquivos = sorted((PASTA_TOKENS / "test").glob(f"{quadrante}_*.json"))
-        if arquivos:
-            selecionadas.append(arquivos[0])
+        selecionadas.extend(arquivos)
     return selecionadas
 
 
@@ -117,7 +116,13 @@ def main():
 
     PASTA_SAIDA.mkdir(parents=True, exist_ok=True)
 
-    tokenizador = REMI(params=PASTA_TOKENS / "tokenizer_remi.json")
+    caminho_tokenizer_convertido = PASTA_TOKENS / "tokenizer_remi.json"
+    caminho_tokenizer = (
+        caminho_tokenizer_convertido
+        if caminho_tokenizer_convertido.is_file()
+        else PASTA_PROJETO / "processed_tokens" / "tokenizer_remi.json"
+    )
+    tokenizador = REMI(params=caminho_tokenizer)
     ids = carregar_ids_proibidos(tokenizador)
 
     if argumentos.arquivos:
@@ -132,11 +137,13 @@ def main():
         print(f"  {nome}: {ids[nome]}")
 
     print("\nResultados:")
+    proporcoes = []
     for caminho in caminhos:
         if not caminho.is_absolute():
             caminho = PASTA_TOKENS / "test" / caminho
         resultado = roundtrip_um_arquivo(caminho, tokenizador, ids)
         proporcao = resultado["batem_notas_pitche_inicio"]
+        proporcoes.append(proporcao)
         print(
             f"  {resultado['nome']}: "
             f"{resultado['original_notas']} -> {resultado['roundtrip_notas']} notas"
@@ -145,6 +152,14 @@ def main():
         print("    só no original:", resultado["so_original"])
         print("    só no roundtrip:", resultado["so_roundtrip"])
 
+    if proporcoes:
+        print(f"\nResumo: {len(proporcoes)} clipes")
+        print(f"  média: {sum(proporcoes) / len(proporcoes):.2%}")
+        print(f"  mínimo: {min(proporcoes):.2%}")
+        print(f"  abaixo de 95%: {sum(p < 0.95 for p in proporcoes)}")
+    else:
+        print("\nResumo: 0 clipes")
+        
 
 if __name__ == "__main__":
     main()
