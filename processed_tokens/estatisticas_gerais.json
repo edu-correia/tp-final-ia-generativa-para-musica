@@ -1,0 +1,15 @@
+{
+    "total_sequencias": 4572,
+    "total_erros": 0,
+    "tamanho_vocabulario": 417,
+    "comprimento_medio": 1215.0503062117236,
+    "comprimento_mediano": 1063.0,
+    "comprimento_minimo": 211,
+    "comprimento_maximo": 5379,
+    "sequencias_originais": 1078,
+    "sequencias_transpostas": 3494,
+    "clipes_Q1": 1054,
+    "clipes_Q2": 1122,
+    "clipes_Q3": 1046,
+    "clipes_Q4": 1350
+}

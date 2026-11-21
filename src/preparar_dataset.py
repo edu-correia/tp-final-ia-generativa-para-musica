@@ -2,7 +2,7 @@ import muspy
 
 # Carrega e baixa o dataset EMOPIA automaticamente
 emopia = muspy.EMOPIADataset(
-    "dataset/EMOPIA/",
+    "dataset/EMOPIA_1.0/",
     download_and_extract=True
 )
 
