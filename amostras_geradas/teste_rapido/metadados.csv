@@ -1,0 +1,5 @@
+arquivo,sistema,quadrante,semente,temperatura,top_k,top_p,max_len,num_tokens,terminou_com_eos,num_notas
+Q1/lstm_Q1_000.mid,lstm,Q1,42,1.0,,0.95,1211,1211,0,273
+Q2/lstm_Q2_000.mid,lstm,Q2,42,1.0,,0.95,325,325,0,70
+Q3/lstm_Q3_000.mid,lstm,Q3,42,1.0,,0.95,744,744,0,157
+Q4/lstm_Q4_000.mid,lstm,Q4,42,1.0,,0.95,951,951,0,206
