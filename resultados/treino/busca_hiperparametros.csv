@@ -1,0 +1,5 @@
+config,dim_embedding,dim_oculta,num_camadas,dropout,lr,tamanho_lote,max_lotes_por_epoca,numero_parametros,melhor_epoca,melhor_val_loss,melhor_val_perplexidade,epocas_treinadas,tempo_total_s
+A,256,512,2,0.3,0.001,32,497,3998881,6,1.758,5.8008,6,189.82
+B,256,512,3,0.3,0.001,32,497,6100129,6,1.830078,6.2344,6,280.32
+C,256,768,2,0.3,0.001,32,497,8304033,4,1.769008,5.865,6,378.7
+D,256,512,2,0.5,0.001,32,497,3998881,6,1.762602,5.8276,6,198.11

@@ -1,0 +1,12 @@
+{
+    "nome_experimento": "lstm_final",
+    "melhor_epoca": 7,
+    "melhor_val_loss": 1.755889,
+    "melhor_val_perplexidade": 5.7886,
+    "train_loss_na_melhor_epoca": 1.602453,
+    "epocas_treinadas": 11,
+    "parou_antecipadamente": true,
+    "tempo_total_s": 357.92,
+    "numero_parametros": 3998881,
+    "device": "cuda"
+}

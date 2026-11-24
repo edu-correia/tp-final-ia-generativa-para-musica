@@ -1,0 +1,6 @@
+conjunto,quadrante,janelas,tokens,loss,perplexidade
+val,total,423,194178,1.755884,5.7886
+val,Q1,103,48460,1.750291,5.7563
+val,Q2,163,77402,1.632611,5.1172
+val,Q3,87,38170,1.947167,7.0088
+val,Q4,70,30146,1.839192,6.2915

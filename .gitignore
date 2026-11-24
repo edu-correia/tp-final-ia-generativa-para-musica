@@ -9,3 +9,18 @@ __pycache__/
 
 # IDE and local environment
 .vscode/
+
+# Checkpoints: só checkpoints/lstm_final/melhor.pt é versionado
+checkpoints/**/ultimo.pt
+checkpoints/**/*.tmp
+checkpoints/busca_*/
+checkpoints/smoke/
+
+# Arquivos usados só para rodar o treino no Colab
+colab/
+src/empacotar_colab.py
+
+# Saídas dos testes de sanidade
+resultados/treino/smoke/
+resultados/treino/avaliacao_smoke_*.csv
+resultados/verificacao/

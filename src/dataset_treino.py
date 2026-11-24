@@ -12,6 +12,9 @@ from miditok import REMI
 PASTA_PROJETO = Path(__file__).resolve().parents[1]
 PASTA_TOKENS = PASTA_PROJETO / "processed_tokens"
 
+# IDs já convertidos para a ordem do tokenizador carregado (usada na geração).
+PASTA_TOKENS_TREINO = PASTA_PROJETO / "processed_tokens_convertidos"
+
 CONJUNTOS = ["train", "val", "test"]
 
 TAMANHO_JANELA = 512
@@ -103,12 +106,12 @@ def dividir_em_janelas(tokens):
 
 class MusicaDataset(Dataset):
 
-    def __init__(self, nome_conjunto):
+    def __init__(self, nome_conjunto, pasta_tokens=PASTA_TOKENS_TREINO):
 
         self.nome_conjunto = nome_conjunto
         self.janelas = []
 
-        pasta = PASTA_TOKENS / nome_conjunto
+        pasta = Path(pasta_tokens) / nome_conjunto
 
         if not pasta.exists():
             raise FileNotFoundError(
@@ -210,7 +213,11 @@ def criar_collate_fn(pad_id):
 
 # Cria os DataLoaders para os conjuntos de treino, validação e teste.
 
-def criar_dataloaders():
+def criar_dataloaders(
+    tamanho_lote=TAMANHO_LOTE,
+    pasta_tokens=PASTA_TOKENS_TREINO,
+    conjuntos=CONJUNTOS
+):
 
     _, pad_id = carregar_tokenizador()
 
@@ -219,16 +226,16 @@ def criar_dataloaders():
 
     collate_fn = criar_collate_fn(pad_id)
 
-    for conjunto in CONJUNTOS:
+    for conjunto in conjuntos:
 
-        dataset = MusicaDataset(conjunto)
+        dataset = MusicaDataset(conjunto, pasta_tokens)
 
         # Embaralha apenas o treinamento.
         embaralhar = conjunto == "train"
 
         loader = DataLoader(
             dataset,
-            batch_size=TAMANHO_LOTE,
+            batch_size=tamanho_lote,
             shuffle=embaralhar,
             collate_fn=collate_fn,
             num_workers=0

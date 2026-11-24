@@ -1,0 +1,49 @@
+{
+    "hiperparametros": {
+        "dim_embedding": 256,
+        "dim_oculta": 512,
+        "num_camadas": 3,
+        "dropout": 0.3,
+        "condicionamento": "token",
+        "amarrar_pesos": false,
+        "lr": 0.001,
+        "weight_decay": 0.01,
+        "tamanho_lote": 32,
+        "epocas": 6,
+        "paciencia": 2,
+        "clip_grad": 1.0,
+        "semente": 42,
+        "nome_experimento": "busca_B",
+        "max_lotes_por_epoca": 497,
+        "teste_rapido": false,
+        "retomar": null
+    },
+    "modelo": {
+        "tamanho_vocabulario": 417,
+        "dim_embedding": 256,
+        "dim_oculta": 512,
+        "num_camadas": 3,
+        "dropout": 0.3,
+        "pad_id": 0,
+        "condicionamento": "token",
+        "ids_emocao": [
+            4,
+            5,
+            6,
+            7
+        ],
+        "dim_emocao": 32,
+        "amarrar_pesos": false
+    },
+    "numero_parametros": 6100129,
+    "device": "cuda",
+    "gpu": "Tesla T4",
+    "versao_torch": "2.14.1+cu130",
+    "janelas_treino": 15896,
+    "janelas_val": 423,
+    "lotes_treino_por_epoca": 497,
+    "tokens_treino_por_epoca": 7309783,
+    "tokens_val": 194178,
+    "pasta_tokens": "processed_tokens_convertidos",
+    "caminho_tokenizador": "processed_tokens/tokenizer_remi.json"
+}

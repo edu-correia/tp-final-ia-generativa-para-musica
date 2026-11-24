@@ -1,0 +1,12 @@
+{
+    "nome_experimento": "busca_A",
+    "melhor_epoca": 6,
+    "melhor_val_loss": 1.758,
+    "melhor_val_perplexidade": 5.8008,
+    "train_loss_na_melhor_epoca": 1.654548,
+    "epocas_treinadas": 6,
+    "parou_antecipadamente": false,
+    "tempo_total_s": 189.82,
+    "numero_parametros": 3998881,
+    "device": "cuda"
+}

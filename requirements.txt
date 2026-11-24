@@ -4,3 +4,4 @@ miditoolkit
 miditok
 symusic
 torch
+matplotlib
