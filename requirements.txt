@@ -5,3 +5,6 @@ miditok
 symusic
 torch
 matplotlib
+scipy
+seaborn
+muspy
