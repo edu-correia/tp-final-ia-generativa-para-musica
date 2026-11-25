@@ -87,4 +87,22 @@ As músicas ficam em `amostras_geradas/{lstm,markov}/`, os WAVs em `amostras_ger
 
 Para outro experimento, repita `EXPERIMENTO_LSTM=outro_nome` nos comandos Make de treino, geração e avaliação da LSTM. Também é possível alterar `CHECKPOINT_LSTM`, `SAIDA_LSTM`, `SAIDA_MARKOV`, `SAIDA_AVALIACAO`, `VENV` e `PYTHON`.
 
+## Pastas
+
+| Pasta | Conteúdo |
+|---|---|
+| `src/` | Código de preparação dos dados, modelos, treinamento, geração, áudio e avaliação |
+| `docs/` | Documentação da LSTM e da amostragem e geração |
+| `dataset/` | Base EMOPIA original, com MIDIs, rótulos e metadados |
+| `splits/` | CSVs das divisões por música e por clipe em treino, validação e teste |
+| `processed_midi/` | MIDIs quantizados, transposições do treino e arquivos de verificação da tokenização |
+| `processed_tokens/` | Sequências REMI e tokenizador salvo |
+| `processed_tokens_convertidos/` | Sequências com IDs ajustados ao vocabulário do tokenizador carregado, usadas pelos modelos |
+| `checkpoints/` | Pesos salvos da LSTM |
+| `resultados/` | Configurações, histórico e curvas de treino, busca de hiperparâmetros e avaliação de loss e perplexidade |
+| `amostras_geradas/` | MIDIs gerados, metadados de geração e áudios sintetizados |
+| `amostras_selecionadas/` | Exemplos escolhidos do Markov, com MIDI e áudio MP3 |
+| `saidas/` | Estatísticas, tabelas e gráficos da avaliação musical |
+| `venv/` | Ambiente virtual com as dependências Python, criado na instalação |
+
 Detalhes: [LSTM](docs/modeloLSTM.md) · [Amostragem e geração](docs/amostragem_geracao.md).
