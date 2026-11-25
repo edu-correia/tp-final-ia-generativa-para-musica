@@ -1,0 +1,46 @@
+{
+    "criterio": "primeiro de cada quadrante e próximo na ordem dos metadados",
+    "exemplos": [
+        {
+            "quadrante": "Q1",
+            "origem": "Q1/markov_Q1_000.mid",
+            "midi": "markov_Q1_000.mid",
+            "midi_sha256": "cc84e97bbe978fe3d9a037637d60c833c52d28217389a0817e36aefd682c7519",
+            "audio": "markov_Q1_000.wav"
+        },
+        {
+            "quadrante": "Q2",
+            "origem": "Q2/markov_Q2_000.mid",
+            "midi": "markov_Q2_000.mid",
+            "midi_sha256": "29d3be7611a6ab8259f67172ba8780b443699a25143587fdf5d20ffd02b1d888",
+            "audio": "markov_Q2_000.wav"
+        },
+        {
+            "quadrante": "Q3",
+            "origem": "Q3/markov_Q3_000.mid",
+            "midi": "markov_Q3_000.mid",
+            "midi_sha256": "897ebbd0905ba09e7cb33e4d407035eef62a57cbdc841c158cc63008f61f9d89",
+            "audio": "markov_Q3_000.wav"
+        },
+        {
+            "quadrante": "Q4",
+            "origem": "Q4/markov_Q4_000.mid",
+            "midi": "markov_Q4_000.mid",
+            "midi_sha256": "b1ccfee07998c85bcd292001512e3438959866beff32dbd315c446382b143e7e",
+            "audio": "markov_Q4_000.wav"
+        },
+        {
+            "quadrante": "Q1",
+            "origem": "Q1/markov_Q1_001.mid",
+            "midi": "markov_Q1_001.mid",
+            "midi_sha256": "ee927a1e9aff2c9183c088d57975fa365322dd3bc2a85b2c0f7ffdffeb9c6a17",
+            "audio": "markov_Q1_001.wav"
+        }
+    ],
+    "audio": {
+        "soundfont": "FluidR3_GM.sf2",
+        "soundfont_sha256": "74594e8f4250680adf590507a306655a299935343583256f3b722c48a1bc1cb0",
+        "taxa_amostragem": 22050,
+        "ganho": 1.0
+    }
+}

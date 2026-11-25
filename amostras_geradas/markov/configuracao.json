@@ -1,0 +1,56 @@
+{
+    "treinamento": {
+        "clipes_por_quadrante": {
+            "Q1": 1005,
+            "Q2": 1073,
+            "Q3": 992,
+            "Q4": 1300
+        },
+        "criterio_ordem": "configuracao_fixa; sem busca de hiperparametros",
+        "eos_no_treino": false,
+        "janelas_por_quadrante": {
+            "Q1": 3990,
+            "Q2": 5429,
+            "Q3": 2902,
+            "Q4": 3575
+        },
+        "ordem": 1,
+        "origens": {
+            "original": 876,
+            "transposto": 3494
+        },
+        "particao": "train",
+        "python": "3.12.3",
+        "sistema": "markov",
+        "sobreposicao": 128,
+        "tamanho_janela": 512,
+        "treino_sha256": "b5057e52e291ba1484690e49c06850c2c004e6224e71a69c1ef64ceb7a7beea6",
+        "versoes": {
+            "miditok": "3.1.0",
+            "symusic": "0.6.0",
+            "torch": "2.15.0"
+        },
+        "vocabulario_sha256": "43b2f86a02af89bdd4ab85c84f9be594afa99d6008fb472fb4a6ea731ee09d87"
+    },
+    "checkpoint_sha256": "0a23f053cfc991907aa61f4b7b73cb77a692332cd2818a383702234c8247106c",
+    "metadados_p3_sha256": "56f004d46ee79c3c1e1d16bcf874ad08c193ee715975f1e2d5c477639323201d",
+    "origem_limites": "campo max_len dos metadados fornecidos por P3",
+    "amostragem": {
+        "temperatura": 1.0,
+        "top_k": null,
+        "top_p": 0.95,
+        "semente": 42,
+        "lote": 25
+    },
+    "funcoes_reutilizadas": [
+        "src.gerar.gerar_lote",
+        "src.gerar.salvar_midi"
+    ],
+    "total_amostras": 100,
+    "device": "cpu",
+    "versoes": {
+        "torch": "2.15.0",
+        "miditok": "3.1.0",
+        "symusic": "0.6.0"
+    }
+}
