@@ -6,6 +6,7 @@ Parte 4: Pipeline de Avaliação Objetiva de Geração Simbólica
 Baseado no protocolo de Yang & Lerch (2020) com MusPy.
 """
 
+import copy
 import os
 import re
 import glob
@@ -21,6 +22,9 @@ from pathlib import Path
 # Configuração visual estilo artigo acadêmico / ISMIR
 sns.set_theme(style="whitegrid", font_scale=1.1)
 plt.rcParams['font.sans-serif'] = 'DejaVu Sans'
+
+# Grade de semicolcheias usada na quantização (P1): posições por tempo.
+RESOLUCAO_GROOVE = 4
 
 
 # ==============================================================================
@@ -41,10 +45,19 @@ def extract_music_metrics(midi_path: str) -> dict:
     try:
         # Métricas tonais e estruturais
         p_range = float(muspy.pitch_range(music))
+        p_entropy = float(muspy.pitch_entropy(music))
         pc_entropy = float(muspy.pitch_class_entropy(music))
         scale_cons = float(muspy.scale_consistency(music))
         poly = float(muspy.polyphony(music))
         empty_beats = float(muspy.empty_beat_rate(music))
+
+        # O groove consistency depende da resolução: com 384 ticks por tempo (humanos)
+        # quase todas as posições do compasso são vazias e o valor vai a ~1, enquanto os
+        # MIDIs gerados têm 4. Iguala a resolução (sem perda: as notas já estão na grade).
+        music_grade = copy.deepcopy(music).adjust_resolution(RESOLUCAO_GROOVE)
+        groove_cons = float(muspy.groove_consistency(
+            music_grade, measure_resolution=4 * music_grade.resolution
+        ))
 
         # CORREÇÃO: Usar get_real_end_time() para tempo real em segundos
         duration_sec = muspy.get_real_end_time(music)
@@ -63,8 +76,10 @@ def extract_music_metrics(midi_path: str) -> dict:
 
         return {
             "pitch_range": p_range,
+            "pitch_entropy": p_entropy,
             "pitch_class_entropy": pc_entropy,
             "scale_consistency": scale_cons,
+            "groove_consistency": groove_cons,
             "polyphony": poly,
             "empty_beat_rate": empty_beats,
             "note_density": note_density,
@@ -333,8 +348,10 @@ def main():
 
     metrics = [
         "pitch_range",
+        "pitch_entropy",
         "pitch_class_entropy",
         "scale_consistency",
+        "groove_consistency",
         "polyphony",
         "empty_beat_rate",
         "note_density"
