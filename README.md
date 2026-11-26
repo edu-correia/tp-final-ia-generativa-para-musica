@@ -105,4 +105,16 @@ Para outro experimento, repita `EXPERIMENTO_LSTM=outro_nome` nos comandos Make d
 | `saidas/` | Estatísticas, tabelas e gráficos da avaliação musical |
 | `venv/` | Ambiente virtual com as dependências Python, criado na instalação |
 
+## Grupo e divisão de tarefas
+
+Preencha os nomes dos responsáveis abaixo.
+
+| Parte | Responsável(is) | Tarefas |
+|---|---|---|
+| P1 — Dados e representação | Luana Oliveira | Separação por música, pré-processamento, aumento de dados, tokenização REMI, estatísticas e Dataset/DataLoader |
+| P2 — Modelo e treinamento | Luis Eduardo | Implementação da LSTM, treinamento, ajuste de hiperparâmetros, checkpoints e curvas de loss |
+| P3 — Amostragem e geração | Paloma Fernanda | Geração condicionada, temperatura/top-k/top-p, decodificação MIDI, áudio e seleção de exemplos da LSTM |
+| P4 — Avaliação | Eduardo Henrique | Métricas MusPy, comparação por OA e KL, análise por quadrante, tabelas, gráficos e estudo de amostragem com P3 |
+| P5 — Baseline e coordenação | Guilherme Pereira, Rodrigo Viana | Markov por quadrante, geração e seleção de exemplos com áudio, organização do repositório e coordenação do relatório e da apresentação |
+
 Detalhes: [LSTM](docs/modeloLSTM.md) · [Amostragem e geração](docs/amostragem_geracao.md).
